@@ -25,9 +25,9 @@ type Student struct {
 
 func writeToXml(src string) {
 	stu := &Student{
-		Name:      "George",
+		Name:      "George", //不传此字段会默认修改yaml中该字段为空
 		Address:   "北京",
-		ScoreList: []Study{{"语文", 21}, {"数学", 22}},
+		ScoreList: []Study{{"语文", 21123}, {"数学", 22123}},
 	}
 	data, err := yaml.Marshal(stu) // 第二个表示每行的前缀，这里不用，第三个是缩进符号，这里用tab
 	checkError(err)
