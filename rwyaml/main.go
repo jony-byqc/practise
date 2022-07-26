@@ -4,8 +4,32 @@ import (
 	"fmt"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
-	"strconv"
 )
+
+type Pwd struct {
+	Password int `yaml:"password"`
+}
+type Env struct {
+	GinMode string   `yaml:"gin_mode"`
+	Authors []string `yaml:"authors"`
+	Age     int      `yaml:"age"`
+	Dev     Pwd      `yaml:"dev"`
+	Test    Pwd      `yaml:"test"`
+}
+
+func main() {
+	path := "./YAML/c.yaml"
+
+	// 读取yaml
+	env := readYaml(path)
+
+	// 修改值
+	env.Age = 1234
+	env.Test.Password = 881234
+
+	// 写入yaml
+	writeYaml(path, env)
+}
 
 func checkError(err error) {
 	if err != nil {
@@ -13,55 +37,21 @@ func checkError(err error) {
 	}
 }
 
-type Study struct {
-	CourseName string `yaml:"CourseName"`
-	Score      int    `yaml:"Score"`
-}
-type Student struct {
-	Name      string  `yaml:"name"`
-	Address   string  `yaml:"addr"`
-	ScoreList []Study `yaml:"ScoreList"`
-}
-
-func writeToXml(src string) {
-	stu := &Student{
-		Name:      "George", //不传此字段会默认修改yaml中该字段为空
-		Address:   "北京",
-		ScoreList: []Study{{"语文", 21123}, {"数学", 22123}},
-	}
-	data, err := yaml.Marshal(stu) // 第二个表示每行的前缀，这里不用，第三个是缩进符号，这里用tab
-	checkError(err)                //io.EOF 是在没有任何可读取的内容时触发，比如某文件Reader对象，文件本身为空，或者读取若干次后，文件指针指向了末尾，调用Read都会触发EOF
-	err = ioutil.WriteFile(src, data, 0777)
+func readYaml(path string) (env Env) {
+	content, err := ioutil.ReadFile(path)
 	checkError(err)
-}
-func readFromXml(src string) {
-	content, err := ioutil.ReadFile(src)
+
+	err = yaml.Unmarshal(content, &env)
 	checkError(err)
-	newStu := &Student{}
-	err = yaml.Unmarshal(content, &newStu)
+
+	fmt.Println(err, env)
+	return env
+}
+
+func writeYaml(path string, env Env) {
+	data, err := yaml.Marshal(env)
 	checkError(err)
-	ScoreList := newStu.ScoreList
-	fmt.Println(newStu.Name + "的学习情况")
-	for _, v := range ScoreList {
-		fmt.Println("Course:" + v.CourseName + "\tScore:" + strconv.Itoa(v.Score))
-	}
-}
-func main() {
-	src := "./YAML/c.yaml" //项目路径下要提前拥有该yaml文件
-	writeToXml(src)
-	readFromXml(src)
-	main1()
-}
 
-type Conf struct {
-	Test []string `yaml:"array.test,flow"`
-}
-
-func main1() {
-	data := `array.test: ["val1", "val2", "val3"]`
-	var conf Conf
-	yaml.Unmarshal([]byte(data), &conf)
-
-	data2, _ := yaml.Marshal(conf)
-	fmt.Printf("%s\n", string(data2))
+	err = ioutil.WriteFile(path, data, 0777)
+	checkError(err)
 }

@@ -1,3 +1,9 @@
-name: George
-addr: 北京
-ScoreList: []
+gin_mode: release
+authors:
+- "111"
+- "222"
+age: 1234
+dev:
+  password: 123
+test:
+  password: 881234
