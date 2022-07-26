@@ -50,10 +50,10 @@ func main() {
 	//main1()
 	fileName := `./log/a.log`
 	config := tail.Config{
-		ReOpen:    true,                                 // 打开文件
-		Follow:    true,                                 // 文件切割自动重新打开
-		Location:  &tail.SeekInfo{Offset: 1, Whence: 0}, // Location读取文件的位置, Whence更加系统选择参数
-		MustExist: false,                                // 允许日志文件不存在
+		ReOpen:    true,                                 // true则文件被删掉阻塞等待新建该文件，false则文件被删掉时程序结束
+		Follow:    true,                                 // true则一直阻塞并监听指定文件，false则一次读完就结束程序
+		Location:  &tail.SeekInfo{Offset: 0, Whence: 0}, // Location读取文件的位置, Whence更加系统选择参数从哪开始：0从头，1当前，2末尾
+		MustExist: true,                                 // 允许日志文件不存在
 		Poll:      true,                                 // 轮询
 	}
 	// 打开文件读取日志

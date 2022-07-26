@@ -30,7 +30,7 @@ func writeToXml(src string) {
 		ScoreList: []Study{{"语文", 21123}, {"数学", 22123}},
 	}
 	data, err := yaml.Marshal(stu) // 第二个表示每行的前缀，这里不用，第三个是缩进符号，这里用tab
-	checkError(err)
+	checkError(err)                //io.EOF 是在没有任何可读取的内容时触发，比如某文件Reader对象，文件本身为空，或者读取若干次后，文件指针指向了末尾，调用Read都会触发EOF
 	err = ioutil.WriteFile(src, data, 0777)
 	checkError(err)
 }
