@@ -3,6 +3,7 @@ module github.com/jony-byqc/practise
 go 1.17
 
 require (
+	github.com/NiuStar/log v0.0.0-20191011094142-5c0a5ce1cd01
 	github.com/PuerkitoBio/goquery v1.8.0
 	github.com/Shopify/sarama v1.34.1
 	github.com/bsm/sarama-cluster v2.1.15+incompatible
@@ -12,9 +13,12 @@ require (
 	github.com/golang/glog v1.0.0
 	github.com/hpcloud/tail v1.0.0
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
+	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7
+	gopkg.in/yaml.v2 v2.4.0
 )
 
 require (
+	github.com/NiuStar/utils v0.0.0-20191010093834-9480ddc0d125 // indirect
 	github.com/andybalholm/cascadia v1.3.1 // indirect
 	github.com/chromedp/cdproto v0.0.0-20220515234810-83d799542a04 // indirect
 	github.com/chromedp/sysutil v1.0.0 // indirect
@@ -22,6 +26,7 @@ require (
 	github.com/eapache/go-resiliency v1.2.0 // indirect
 	github.com/eapache/go-xerial-snappy v0.0.0-20180814174437-776d5712da21 // indirect
 	github.com/eapache/queue v1.1.0 // indirect
+	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
@@ -51,8 +56,10 @@ require (
 	github.com/onsi/ginkgo v1.16.5 // indirect
 	github.com/onsi/gomega v1.20.0 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.1 // indirect
+	github.com/petermattis/goid v0.0.0-20220712135657-ac599d9cba15 // indirect
 	github.com/pierrec/lz4/v4 v4.1.14 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
+	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/ugorji/go/codec v1.2.7 // indirect
 	golang.org/x/crypto v0.0.0-20220214200702-86341886e292 // indirect
 	golang.org/x/net v0.0.0-20220520000938-2e3eb7b945c2 // indirect
@@ -60,6 +67,4 @@ require (
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
 	gopkg.in/fsnotify.v1 v1.4.7 // indirect
-	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
 )

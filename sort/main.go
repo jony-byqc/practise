@@ -43,8 +43,8 @@ func selectionSort(a []int) []int {
 //插入排序
 func insertionSort(a []int) []int {
 	for i := 0; i < len(a)-1; i++ {
-		pre := i - 1
-		cre := a[i]
+		pre := i - 1 // 待排序的数左边的第一个数的位置
+		cre := a[i]  // 待排序的数
 		for pre >= 0 && a[pre] > cre {
 			a[pre+1] = a[pre]
 			pre -= 1
