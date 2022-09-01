@@ -24,20 +24,24 @@ func main() {
 		if err != nil {
 			log.Println(err)
 		}
-		data := CommonResp{
-			Code:     "200",
-			Message:  "OK",
-			TraceID:  "LC0",
-			ErrorMsg: "no error",
-		}
-		//data := MesVehicle{
-		//	Code:      "0",
-		//	AutoID:    "N6150004",
-		//	Vin:       "LC0CE4CC2N0131358",
-		//	Station:   "sf3",
-		//	Job:       "",
-		//	Configure: "sf3",
+		//data := CommonResp{
+		//	Code:     "200",
+		//	Message:  "OK",
+		//	TraceID:  "DJ2022A",
+		//	ErrorMsg: "no error",
 		//}
+		data := CommonResp{
+			Code:    "0",
+			Message: "OK",
+			Data: []MesVehicle{{
+				AutoID:    "DJ2022A",
+				Vin:       "DJ2022A12345678900000",
+				Station:   "DJ2022A",
+				Job:       "1",
+				Configure: "DJ2022A",
+			},
+			},
+		}
 
 		//consumer.JSON(http.StatusOK, data)
 		c.JSON(http.StatusOK, data)
@@ -51,20 +55,24 @@ func main() {
 		if err != nil {
 			log.Println(err)
 		}
-		data := CommonResp{
-			Code:     "200",
-			Message:  "OK",
-			TraceID:  "LC0",
-			ErrorMsg: "no error",
-		}
-		//data := MesVehicle{
-		//	Code:      "0",
-		//	AutoID:    "N6150004",
-		//	Vin:       "LC0CE4CC2N0131358",
-		//	Station:   "sf3",
-		//	Job:       "",
-		//	Configure: "sf3",
+		//data := CommonResp{
+		//	Code:     "200",
+		//	Message:  "OK",
+		//	TraceID:  "LC0",
+		//	ErrorMsg: "no error",
 		//}
+		data := CommonResp{
+			Code:    "0",
+			Message: "OK",
+			Data: []MesVehicle{{
+				AutoID:    "DJ2022A",
+				Vin:       "DJ2022A",
+				Station:   "DJ2022A",
+				Job:       "1",
+				Configure: "DJ2022A",
+			},
+			},
+		}
 		//consumer.JSON(http.StatusOK, data)
 		c.JSON(http.StatusOK, data)
 	})
@@ -72,15 +80,14 @@ func main() {
 }
 
 type CommonResp struct {
-	Code     string      `json:"code"`
-	Message  string      `json:"message"`
-	Data     interface{} `json:"data"`
-	TraceID  string      `json:"traceID"`
-	ErrorMsg string      `json:"errorMsg"`
+	Code     string       `json:"code"`
+	Message  string       `json:"message"`
+	Data     []MesVehicle `json:"data"`
+	TraceID  string       `json:"traceID"`
+	ErrorMsg string       `json:"errorMsg"`
 }
 
 type MesVehicle struct {
-	Code      string `json:"code"`
 	AutoID    string `json:"Auto_ID"` // pin
 	Vin       string `json:"Auto_VIN"`
 	Station   string `json:"Station"`
