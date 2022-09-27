@@ -32,7 +32,7 @@ func converseToBin(n int) string { //int2bin
 }
 
 func main2() {
-	s := "12345678" //英文和数字和英文特殊字符占1个字节长度,中文占用3个字节长度
+	s := "123456789" //英文和数字和英文特殊字符占1个字节长度,中文占用3个字节长度
 	a := s[2]
 	fmt.Println(a)        //输出:
 	fmt.Printf("%T\n", a) //输出uint8
