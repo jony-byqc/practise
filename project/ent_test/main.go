@@ -3,10 +3,10 @@ package main
 import (
 	"context"
 	"entgo.io/ent/dialect/sql"
+	"entgo.io/ent/entc/integration/ent"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/realcp1018/tinylog"
 	"os"
-	"test/ent"
 	"time"
 )
 
