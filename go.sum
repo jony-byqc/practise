@@ -41,6 +41,10 @@ github.com/CloudyKit/fastprinter v0.0.0-20200109182630-33d98a066a53 h1:sR+/8Yb4s
 github.com/CloudyKit/fastprinter v0.0.0-20200109182630-33d98a066a53/go.mod h1:+3IMCy2vIlbG1XG/0ggNQv0SvxCAIpPM5b1nCz56Xno=
 github.com/CloudyKit/jet/v3 v3.0.0 h1:1PwO5w5VCtlUUl+KTOBsTGZlhjWkcybsGaAau52tOy8=
 github.com/CloudyKit/jet/v3 v3.0.0/go.mod h1:HKQPgSJmdK8hdoAbKUUWajkHyHo4RaU5rMdUywE7VMo=
+github.com/CuteReimu/colortools v0.0.0-20221221025028-533984f1967a h1:UB0aRu7FjnyxmV3CTx0VOu5C4m3xjQQcDKYxoZInYuA=
+github.com/CuteReimu/colortools v0.0.0-20221221025028-533984f1967a/go.mod h1:eoPz8x4AIySPuVG3zegY+rae5lMNaMIR77SGXhNERiE=
+github.com/CuteReimu/neuquant v0.0.0-20230130033604-cd117bc74e3f h1:f8DuG/ZVu+aKqlMNFvGalz3xdWBvbvz9g16A2Ft5ne8=
+github.com/CuteReimu/neuquant v0.0.0-20230130033604-cd117bc74e3f/go.mod h1:zvj+S0WHyq62Wy7X9LTafhLatHb9NgES9WYUATemaF8=
 github.com/Joker/hpp v1.0.0 h1:65+iuJYdRXv/XyN62C1uEmmOx3432rNG/rKlX6V7Kkc=
 github.com/Joker/hpp v1.0.0/go.mod h1:8x5n+M1Hp5hC0g8okX3sR3vFQwynaX/UgSOM9MeBKzY=
 github.com/Microsoft/go-winio v0.6.0 h1:slsWYD/zyx7lCXoZVlvQrj0hPTM1HI4+v1sIda2yDvg=

@@ -27,6 +27,8 @@ require (
 	github.com/BurntSushi/toml v0.3.1 // indirect
 	github.com/CloudyKit/fastprinter v0.0.0-20200109182630-33d98a066a53 // indirect
 	github.com/CloudyKit/jet/v3 v3.0.0 // indirect
+	github.com/CuteReimu/colortools v0.0.0-20221221025028-533984f1967a // indirect
+	github.com/CuteReimu/neuquant v0.0.0-20230130033604-cd117bc74e3f // indirect
 	github.com/Microsoft/go-winio v0.6.0 // indirect
 	github.com/NiuStar/utils v0.0.0-20191010093834-9480ddc0d125 // indirect
 	github.com/Shopify/goreferrer v0.0.0-20181106222321-ec9c9a553398 // indirect
