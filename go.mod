@@ -1,9 +1,11 @@
 module github.com/jony-byqc/practise
 
-go 1.17
+go 1.18
 
 require (
 	gitee.com/baixudong/gospider v0.0.0-20230425143124-531b39614fff
+	github.com/CuteReimu/colortools v0.0.0-20221221025028-533984f1967a
+	github.com/CuteReimu/neuquant v0.0.0-20230130033604-cd117bc74e3f
 	github.com/NiuStar/log v0.0.0-20191011094142-5c0a5ce1cd01
 	github.com/PuerkitoBio/goquery v1.8.1
 	github.com/Shopify/sarama v1.34.1
@@ -12,12 +14,18 @@ require (
 	github.com/eclipse/paho.mqtt.golang v1.4.2
 	github.com/gin-gonic/gin v1.9.0
 	github.com/go-redis/redis v6.15.9+incompatible
+	github.com/golang/protobuf v1.5.2
 	github.com/google/uuid v1.3.0
 	github.com/hpcloud/tail v1.0.0
 	github.com/kataras/iris/v12 v12.1.8
 	github.com/lib/pq v1.10.7
 	github.com/nsqio/go-diskqueue v1.1.0
+	github.com/patrickmn/go-cache v2.1.0+incompatible
+	github.com/sirupsen/logrus v1.9.0
 	github.com/wechaty/go-wechaty v0.4.9
+	golang.org/x/text v0.8.0
+	golang.org/x/time v0.0.0-20191024005414-555d28b269f0
+	google.golang.org/protobuf v1.30.0
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7
 	gopkg.in/yaml.v2 v2.4.0
@@ -27,8 +35,6 @@ require (
 	github.com/BurntSushi/toml v0.3.1 // indirect
 	github.com/CloudyKit/fastprinter v0.0.0-20200109182630-33d98a066a53 // indirect
 	github.com/CloudyKit/jet/v3 v3.0.0 // indirect
-	github.com/CuteReimu/colortools v0.0.0-20221221025028-533984f1967a // indirect
-	github.com/CuteReimu/neuquant v0.0.0-20230130033604-cd117bc74e3f // indirect
 	github.com/Microsoft/go-winio v0.6.0 // indirect
 	github.com/NiuStar/utils v0.0.0-20191010093834-9480ddc0d125 // indirect
 	github.com/Shopify/goreferrer v0.0.0-20181106222321-ec9c9a553398 // indirect
@@ -52,7 +58,6 @@ require (
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.12.0 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
-	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
@@ -98,7 +103,6 @@ require (
 	github.com/schollz/closestmatch v2.1.0+incompatible // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
-	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/skip2/go-qrcode v0.0.0-20191027152451-9434209cb086 // indirect
 	github.com/smartystreets/goconvey v1.7.2 // indirect
 	github.com/tidwall/gjson v1.14.4 // indirect
@@ -124,11 +128,9 @@ require (
 	golang.org/x/net v0.8.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.6.0 // indirect
-	golang.org/x/text v0.8.0 // indirect
 	golang.org/x/tools v0.6.1-0.20230222164832-25d2519c8696 // indirect
 	google.golang.org/genproto v0.0.0-20220317150908-0efb43f6373e // indirect
 	google.golang.org/grpc v1.45.0 // indirect
-	google.golang.org/protobuf v1.30.0 // indirect
 	gopkg.in/fsnotify.v1 v1.4.7 // indirect
 	gopkg.in/ini.v1 v1.51.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
