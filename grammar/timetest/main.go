@@ -5,14 +5,23 @@ import (
 	"time"
 )
 
-const audivwDatetimeLayout = "20/11/2011 11:34:45"
-
 func main() {
-	t := time.Now()
-	fmt.Println(t)
-	stime, err := time.Parse(audivwDatetimeLayout, t.Format(time.RFC3339))
-	if err != nil { //nolint
-		return
+	// 获取当前时区
+	loc, err := time.LoadLocation("Local")
+	if err != nil {
+		panic(err)
 	}
-	fmt.Println(stime)
+
+	// 获取当前时间
+	now := time.Now().In(loc)
+
+	// 获取 UTC 时间
+	nowUTC := now.UTC()
+
+	// 计算时间差
+	timeDiff := now.Sub(nowUTC)
+
+	fmt.Println("Current local time:", now.Format("2006-01-02 15:04:05"))
+	fmt.Println("Current UTC time:", nowUTC.Format("2006-01-02 15:04:05"))
+	fmt.Println("Time difference:", timeDiff)
 }

@@ -2,28 +2,38 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 type stu struct {
-	Name string
-	Age  int
+	start chan struct{}
+	stop  chan struct{}
 }
 
-func (p *stu) setName(name string) *stu {
-	p.Name = name
-	return p
-}
-
-func (p *stu) setAge(age int) *stu {
-	p.Age = age
-	return p
-}
-
-func (p *stu) print() {
-	fmt.Printf("name:%s age:%d\n", p.Name, p.Age)
+func newStu() *stu {
+	return &stu{
+		stop:  make(chan struct{}),
+		start: make(chan struct{}, 1),
+	}
 }
 
 func main() {
-	stu := stu{}
-	stu.setName("stu01").setAge(18).print()
+
+	s := newStu()
+	s.start <- struct{}{}
+	go s.run()
+	s.stop <- struct{}{}
+	time.Sleep(2 * time.Second)
+
+	fmt.Println("333333333333")
+}
+
+func (s *stu) run() {
+	select {
+	case <-s.stop:
+		fmt.Println("11111111111")
+	case <-s.start:
+		fmt.Println("222222222222")
+
+	}
 }

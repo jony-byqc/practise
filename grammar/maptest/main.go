@@ -1,81 +1,52 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
+
+var myMap = make(map[string]int)
 
 func main() {
-	// map 判断key值是否存在 判断方式为value,key := map[key], key为true则存在
-	demo := map[string]string{
-		"name":  "tom",
-		"phone": "010-xxxx",
+	// 创建一个普通的 map
+
+	// 在单线程中对 map 进行操作
+	myMap["apple"] = 5
+
+	// 读取 map 中的值
+	fmt.Println(myMap["apple"])  // 输出: 5
+	fmt.Println(myMap["banana"]) // 输出: 3
+	fmt.Println(myMap["orange"]) // 输出: 7
+
+	// 删除 map 中的键值对
+	//delete(myMap, "banana")
+
+	go z()
+	go d()
+
+	// 遍历 map
+	for key, value := range myMap {
+		fmt.Printf("%s: %d\n", key, value)
 	}
-
-	demo2 := map[string]bool{
-		"hot": true,
-		"top": false,
-	}
-
-	fmt.Println("demo1[\"name\"]: ", demo["name"]) //tom
-	fmt.Println("demo1[\"sex\"]: ", demo["sex"])   //无输出
-
-	fmt.Println("demo2[\"hot\"]: ", demo2["hot"]) //true
-	fmt.Println("demo2[\"top\"]: ", demo2["top"]) //false  判断方式错误 top存在 但是返回值为false
-
-	_, name := demo["name"]
-	fmt.Println("is exist demo1[\"name\"] ?", name) //true
-
-	_, sex := demo["sex"]
-	fmt.Println("is exist demo1[\"sex\"] ?", sex) //false
-
-	if _, hot := demo2["hot"]; hot {
-		fmt.Println("is exist demo2[\"hot\"] ?", hot) //true
-	}
-
-	if _, top := demo2["hot"]; top {
-		fmt.Println("is exist demo2[\"top\"] ?", top) //true
-	}
-
-	if _, old := demo2["old"]; old {
-		fmt.Println("is exist demo2[\"old\"] ?", old)
+	// 输出:
+	// apple: 5
+	// orange: 7
+	var myMaps sync.Map
+	myMaps.Store("key1", "value1")
+	myMaps.Store("key2", "value2")
+	value, ok := myMaps.Load("key1")
+	if ok {
+		fmt.Println("Value:", value)
 	} else {
-		fmt.Println("is exist demo2[\"old\"] ?", old) //false
+		fmt.Println("Key not found")
 	}
+}
 
-	intMap := map[int]int{
-		1: 1,
-		2: 2,
-		3: 3,
-	}
+func z() {
+	myMap["banana"] = 3
+	myMap["orange"] = 7
+}
 
-	stringMap := map[string]string{
-		"1": "1",
-		"2": "2",
-		"3": "3",
-	}
-
-	boolMap := map[string]bool{
-		"a": true,
-		"b": true,
-		"c": false,
-	}
-
-	interfaceMap := map[string]interface{}{
-		"a": true,
-		"b": "b",
-		"c": 1,
-	}
-
-	x := interfaceMap["w"]
-	fmt.Println(x)
-	fmt.Println(intMap[1], intMap[5])
-	fmt.Println(stringMap["1"], stringMap["5"])
-	fmt.Println(len(stringMap["1"]), len(stringMap["5"])) // len=1,len=0
-	fmt.Println(boolMap["a"], boolMap["c"], boolMap["e"])
-	fmt.Println(interfaceMap["a"], interfaceMap["c"], interfaceMap["e"])
-
-	if value, ok := stringMap["6"]; ok {
-		fmt.Println("key存在")
-	} else {
-		fmt.Println("key不存在, value为空值:", value)
-	}
-
+func d() {
+	delete(myMap, "banana")
 }
