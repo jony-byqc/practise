@@ -16,9 +16,9 @@ func main() {
 	}
 
 	// Create a new client using an InfluxDB server base URL and an authentication token
-	client := influxdb2.NewClient("http://influx-proxy.dev.weiheng-tech.com", "")
+	client := influxdb2.NewClient("http://influx-proxy.com", "")
 	// Get query client
-	queryAPI := client.QueryAPI("weiheng")
+	queryAPI := client.QueryAPI("org")
 	// get QueryTableResult
 	result, err := queryAPI.Query(context.Background(), `from(bucket: "ems_cloud_dev")
  |> range(start: 1721107999, stop: 1721108317)
